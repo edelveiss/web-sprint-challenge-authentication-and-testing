@@ -58,6 +58,9 @@ Following steps of TDD test:
 -Run tests and Refactor code.
 -Repeat.
 
+Application was deployed to heroku:
+https://tzsprintauthapp.herokuapp.com/
+
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
 ## Instructions
