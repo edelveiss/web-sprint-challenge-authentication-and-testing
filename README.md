@@ -26,11 +26,40 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Differences between using _sessions_ or _JSON Web Tokens_ for authentication.
 
+Session Based Authentication
+In the session based authentication, the server will create a session for the user after the user logs in. The session id is then stored on a cookie on the user’s browser. While the user stays logged in, the cookie would be sent along with every subsequent request. The server can then compare the session id stored on the cookie against the session information stored in the memory to verify user’s identity and sends response with the corresponding state
+
+Token Based Authentication
+In the token based application, the server creates JWT with a secret and sends the JWT to the client. The client stores the JWT (usually in local storage) and includes JWT in the header with every request. The server would then validate the JWT with every request from the client and sends response.
+
+The biggest difference here is that the user’s state is not stored on the server, as the state is stored inside the token on the client side instead.
+Session Based Authentication: Because the sessions are stored in the server’s memory, scaling becomes an issue when there is a huge number of users using the system at once.
+Token Based Authentication: There is no issue with scaling because token is stored on the client side.
+
 2. What does `bcrypt` do to help us store passwords in a secure manner.
+
+We take a user password in a plain text and translate that into a string that it is not possible to reverse back into the password. For that we use a library called bcryptjs. Bcryptjs library will automatically add a salt (a random string) to the user password and generates the hash by combining both the username and a password.
+We are using bcryptjs to generate hashes.
 
 3. How are unit tests different from integration and end-to-end testing.
 
+Unit testing is for small units: functions, methods, components.
+Integration testing verifyies that several units work togehter in harmony.
+End-to-end testing behaves like a user to click around the app and verify that it functions correctly.
+
 4. How _Test Driven Development_ changes the way we write applications and tests.
+
+Test-Driven Development starts with designing and developing tests for every small functionality of an application. TDD instructs developers to write new code only if an automated test has failed.
+Following steps of TDD test:
+
+-Add a test.
+-Run all tests and see if any new test fails.
+-Write some code.
+-Run tests and Refactor code.
+-Repeat.
+
+Application was deployed to heroku:
+https://tzsprintauthapp.herokuapp.com/
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
